@@ -7,45 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Canvas>
-        <TextBox x:Name="txtBoxArtName" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="88" Canvas.Top="11"/>
-        <TextBox x:Name="txtBoxArtistName" Canvas.Left="88" TextWrapping="Wrap" Text="" Canvas.Top="48" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <RichTextBox Height="96" Width="200" Canvas.Left="11" Canvas.Top="112" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <FlowDocument>
-                <Paragraph>
-                    <Run x:Name="runBody" Text=""/>
-                </Paragraph>
-            </FlowDocument>
-        </RichTextBox>
-        <ComboBox x:Name="comboBoxYears" Canvas.Left="88" Canvas.Top="275" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtBoxImagePicker" IsReadOnly="True" Canvas.Left="91" TextWrapping="Wrap" Text="" Canvas.Top="312" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-        <Button x:Name="btnImagePicker" Content="Image Picker" Canvas.Left="10" Canvas.Top="310" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnImagePicker_Click"/>
-        <Image x:Name="imageDisplay" Height="208" Canvas.Left="526" Canvas.Top="14" Width="260"/>
-        <RadioButton x:Name="radioImpressionism" GroupName="Style" Content="Impressionism" Canvas.Left="18" Canvas.Top="223"/>
-        <RadioButton x:Name="radioExpressionism" GroupName="Style" Content="Expressionism" Canvas.Left="118" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioContemporary" GroupName="Style" Content="Contemporary" Canvas.Left="18" Canvas.Top="243"/>
-        <RadioButton x:Name="radioRealism" GroupName="Style" Content="Realism" Canvas.Left="118" Canvas.Top="246" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="btnAddToCollection" Content="Add To Collection" Canvas.Left="62" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAddToCollection_Click"/>
-        <RichTextBox x:Name="richTextBoxDisplay" Height="167" Width="269" Canvas.Left="521" Canvas.Top="237" HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Image x:Name="imageDisplay" Height="208" Canvas.Left="459" Canvas.Top="15" Width="323" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RichTextBox x:Name="richTextBoxDisplay" Height="167" Width="331" Canvas.Left="459" Canvas.Top="237" HorizontalAlignment="Left" VerticalAlignment="Center">
             <FlowDocument>
                 <Paragraph>
                     <Run x:Name="runFormattedBody" Text=""/>
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <ListView x:Name="listViewDisplay" Height="385" Width="296" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="19" Canvas.Left="220" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="listViewDisplay_SelectionChanged">
+        <ListView x:Name="listViewDisplay" Height="349" Width="420" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="19" Canvas.Left="10" HorizontalAlignment="Center" VerticalAlignment="Top" SelectionChanged="listViewDisplay_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Date}" Header="Date" Width="60px"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Name}" Header="Name" Width="60px"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = Artist}" Header="Artist" Width="60px"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding Path = ArtStyle}" Header="Art Style" Width="75px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Date}" Header="Date" Width="100px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Name}" Header="Name" Width="100px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Artist}" Header="Artist" Width="100px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ArtStyle}" Header="Art Style" Width="100px"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Label Content="Art Name:" Canvas.Left="18" Canvas.Top="7"/>
-        <Label Content="Artist Name:" Canvas.Left="10" Canvas.Top="44"/>
-        <Label Content="Body:" Canvas.Left="10" Canvas.Top="86"/>
-        <Label Content="Year:" Canvas.Left="32" Canvas.Top="273"/>
+        <Button x:Name="btnOpenAddArtPiece" Content="Add Art Piece" Canvas.Left="10" Canvas.Top="373" Height="41" Width="159" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnOpenAddArtPiece_Click"/>
 
     </Canvas>
 </Window>

@@ -25,99 +25,8 @@ namespace ArtBlog
         {
             InitializeComponent();
 
-            //Adds years 2024-2000 to comboBoxYears
-            List<int> years = new List<int>();
-            for (int k = 2024; k > 1999; k--)
-            {
-                years.Add(k);
-            }
-            comboBoxYears.ItemsSource = years;
-            comboBoxYears.SelectedIndex = 0;
-
             listViewDisplay.ItemsSource = Data.ArtPieces;
-
-            radioImpressionism.IsChecked = true;
         }
-
-        private void btnAddToCollection_Click(object sender, RoutedEventArgs e)
-        {
-            if(CheckStatus()) //Runs if all boxes are properly filled
-            {
-                int date = (int)comboBoxYears.SelectedValue;
-                String name = txtBoxArtName.Text;
-                String artist = txtBoxArtistName.Text;
-                String body = runBody.Text;
-                String filepath = txtBoxImagePicker.Text;
-                Style style = getRadioButton();
-                data.AddArtPiece(new ArtPiece(date, name, artist, body, filepath, style));
-                listViewDisplay.Items.Refresh();
-            }
-        }
-
-        public bool CheckStatus() //Makes sure that all boxes are filled
-        {
-            if (String.IsNullOrWhiteSpace(txtBoxArtName.Text))
-            {
-                MessageBox.Show("Please enter an Art Name");
-                return false;
-            }
-            if (String.IsNullOrWhiteSpace(txtBoxArtistName.Text))
-            {
-                MessageBox.Show("Please enter an Artist Name");
-                return false;
-            }
-            if (String.IsNullOrWhiteSpace(runBody.Text))
-            {
-                MessageBox.Show("Please enter a body paragraph");
-                return false;
-            }
-            if (String.IsNullOrWhiteSpace(txtBoxImagePicker.Text))
-            {
-                MessageBox.Show("Please select an image");
-                return false;
-            }
-            return true;
-        }
-
-        private void btnImagePicker_Click(object sender, RoutedEventArgs e)
-        {
-            //Step 1
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-
-            //Filter
-            //What is displayed in drop down box
-            String displayFilter = "Image files (*.png;*.jpeg;*.jpg;)";
-            //Filter results in file explorer
-            String filterBy = "*.png;*.jpeg;*.jpg;";
-            //Full string which uses pipe to seperate display and filter
-            String fullFilter = $"{displayFilter}|{filterBy}";
-
-            openFileDialog.Filter = fullFilter;
-
-            //Opens dialog and returns true if image is selected
-            if (openFileDialog.ShowDialog() == true)
-            {
-                String returnedFiledPath = openFileDialog.FileName;
-                txtBoxImagePicker.Text = returnedFiledPath;
-            }
-        }
-        public Style getRadioButton() //Returns selected radio button
-        {
-            if (radioContemporary.IsChecked == true)
-            {
-                return ArtBlog.Style.Impressionism;
-            }
-            if (radioExpressionism.IsChecked == true)
-            {
-                return ArtBlog.Style.Expressionism;
-            }
-            if (radioImpressionism.IsChecked == true)
-            {
-                return ArtBlog.Style.Impressionism;
-            }
-            return ArtBlog.Style.Realism;  
-        }
-
         private void listViewDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //turn listbox into a object we can use
@@ -133,6 +42,15 @@ namespace ArtBlog
             richTextBoxDisplay.Document = piece.FormattedPost(date, name, artist, body);
 
             imageDisplay.Source = piece.GenerateBitMap(piece.FilePath);
+        }
+
+        private void btnOpenAddArtPiece_Click(object sender, RoutedEventArgs e)
+        {
+            //Create object so we can access our other window
+            AddArtPiece addArtPiece = new AddArtPiece();
+
+            //Opens other window
+            addArtPiece.Show();
         }
     }
 }

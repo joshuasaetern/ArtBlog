@@ -1,0 +1,34 @@
+﻿<Window x:Class="ArtBlog.AddArtPiece"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArtBlog"
+        mc:Ignorable="d"
+        Title="AddArtPiece" Height="450" Width="800">
+    <Canvas>
+        <TextBox x:Name="txtBoxArtName" TextWrapping="Wrap" Text="" Canvas.Left="119" Canvas.Top="34" Width="123"/>
+        <TextBox x:Name="txtBoxArtistName" TextWrapping="Wrap" Text="" Canvas.Left="119" Canvas.Top="71" Width="123"/>
+        <RichTextBox Height="106" Canvas.Left="50" Canvas.Top="124" Width="200">
+            <FlowDocument>
+                <Paragraph>
+                    <Run x:Name="runBody" Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ComboBox x:Name="comboBoxYears" Canvas.Left="125" Canvas.Top="299"/>
+        <TextBox x:Name="txtBoxImagePicker" IsReadOnly="True" TextWrapping="Wrap" Text="" Canvas.Left="128" Canvas.Top="336" Width="120"/>
+        <Button x:Name="btnImagePicker" Content="Image Picker" Click="btnImagePicker_Click" Canvas.Left="47" Canvas.Top="334"/>
+        <RadioButton x:Name="radioImpressionism" GroupName="Style" Content="Impressionism" Canvas.Left="57" Canvas.Top="235"/>
+        <RadioButton x:Name="radioExpressionism" GroupName="Style" Content="Expressionism" Canvas.Left="157" Canvas.Top="236"/>
+        <RadioButton x:Name="radioContemporary" GroupName="Style" Content="Contemporary" Canvas.Left="57" Canvas.Top="255"/>
+        <RadioButton x:Name="radioRealism" GroupName="Style" Content="Realism" Canvas.Left="157" Canvas.Top="258"/>
+        <Button x:Name="btnAddToCollection" Content="Add To Collection" Click="btnAddToCollection_Click" Canvas.Left="99" Canvas.Top="374"/>
+        <Label Content="Art Name:" Canvas.Left="49" Canvas.Top="30"/>
+        <Label Content="Artist Name:" Canvas.Left="41" Canvas.Top="67"/>
+        <Label Content="Body:" Canvas.Left="49" Canvas.Top="98"/>
+        <Label Content="Year:" Canvas.Left="69" Canvas.Top="297"/>
+        <Button x:Name="btnOpenMainWindow" Content="Open Display Window" HorizontalAlignment="Left" VerticalAlignment="Top" Height="48" Width="161" Click="btnOpenMainWindow_Click" Canvas.Left="272" Canvas.Top="346"/>
+
+    </Canvas>
+</Window>
