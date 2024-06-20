@@ -46,7 +46,7 @@ namespace ArtBlog
         public Style ArtStyle { get => artStyle; set => artStyle = value; }
 
         //Methods
-        private BitmapImage GenerateBitMap(String filePath) //Generates Bitmap Image
+        public BitmapImage GenerateBitMap(String filePath) //Generates Bitmap Image
         {
             String imgPath = @filePath;
 
@@ -59,7 +59,8 @@ namespace ArtBlog
         public FlowDocument FormattedPost(Paragraph date, Paragraph header, Paragraph artist, Paragraph body) //Displays fully formatted post to RichTextBox
         {
             FlowDocument post = new FlowDocument(); 
-            //Changed all FontFamilies
+
+            //Changes all FontFamilies
             post.FontFamily = new FontFamily("Cascadia Code");
 
             //Adds all blocks to post

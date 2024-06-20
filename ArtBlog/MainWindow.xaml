@@ -6,7 +6,42 @@
         xmlns:local="clr-namespace:ArtBlog"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Canvas>
+        <TextBox x:Name="txtBoxArtName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="11" Canvas.Top="38"/>
+        <TextBox x:Name="txtBoxArtistName" Canvas.Left="11" TextWrapping="Wrap" Text="" Canvas.Top="78" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RichTextBox Height="96" Width="200" Canvas.Left="11" Canvas.Top="112" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <FlowDocument>
+                <Paragraph>
+                    <Run x:Name="runBody" Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ComboBox x:Name="comboBoxYears" Canvas.Left="46" Canvas.Top="274" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtBoxImagePicker" IsReadOnly="True" Canvas.Left="91" TextWrapping="Wrap" Text="" Canvas.Top="312" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Button x:Name="btnImagePicker" Content="Image Picker" Canvas.Left="10" Canvas.Top="310" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnImagePicker_Click"/>
+        <Image x:Name="imageDisplay" Height="208" Canvas.Left="526" Canvas.Top="14" Width="260"/>
+        <RadioButton x:Name="radioImpressionism" GroupName="Style" Content="Impressionism" Canvas.Left="18" Canvas.Top="223"/>
+        <RadioButton x:Name="radioExpressionism" GroupName="Style" Content="Expressionism" Canvas.Left="118" Canvas.Top="224" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioContemporary" GroupName="Style" Content="Contemporary" Canvas.Left="18" Canvas.Top="243"/>
+        <RadioButton x:Name="radioRealism" GroupName="Style" Content="Realism" Canvas.Left="118" Canvas.Top="246" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddToCollection" Content="Add To Collection" Canvas.Left="62" Canvas.Top="350" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnAddToCollection_Click"/>
+        <RichTextBox x:Name="richTextBoxDisplay" Height="167" Width="269" Canvas.Left="521" Canvas.Top="237" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <FlowDocument>
+                <Paragraph>
+                    <Run x:Name="runFormattedBody" Text=""/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+        <ListView x:Name="listViewDisplay" Height="385" Width="296" d:ItemsSource="{d:SampleData ItemCount=5}" Canvas.Top="19" Canvas.Left="220" HorizontalAlignment="Left" VerticalAlignment="Center" SelectionChanged="listViewDisplay_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Date}" Header="Date" Width="60px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Name}" Header="Name" Width="60px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = Artist}" Header="Artist" Width="60px"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path = ArtStyle}" Header="Art Style" Width="75px"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
-    </Grid>
+    </Canvas>
 </Window>
