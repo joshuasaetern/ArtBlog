@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Canvas>
-        <TextBox x:Name="txtBoxArtName" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="11" Canvas.Top="38"/>
-        <TextBox x:Name="txtBoxArtistName" Canvas.Left="11" TextWrapping="Wrap" Text="" Canvas.Top="78" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtBoxArtName" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Canvas.Left="88" Canvas.Top="11"/>
+        <TextBox x:Name="txtBoxArtistName" Canvas.Left="88" TextWrapping="Wrap" Text="" Canvas.Top="48" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <RichTextBox Height="96" Width="200" Canvas.Left="11" Canvas.Top="112" HorizontalAlignment="Left" VerticalAlignment="Center">
             <FlowDocument>
                 <Paragraph>
@@ -16,7 +16,7 @@
                 </Paragraph>
             </FlowDocument>
         </RichTextBox>
-        <ComboBox x:Name="comboBoxYears" Canvas.Left="46" Canvas.Top="274" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <ComboBox x:Name="comboBoxYears" Canvas.Left="88" Canvas.Top="275" Width="120" HorizontalAlignment="Center" VerticalAlignment="Top"/>
         <TextBox x:Name="txtBoxImagePicker" IsReadOnly="True" Canvas.Left="91" TextWrapping="Wrap" Text="" Canvas.Top="312" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
         <Button x:Name="btnImagePicker" Content="Image Picker" Canvas.Left="10" Canvas.Top="310" HorizontalAlignment="Left" VerticalAlignment="Center" Click="btnImagePicker_Click"/>
         <Image x:Name="imageDisplay" Height="208" Canvas.Left="526" Canvas.Top="14" Width="260"/>
@@ -42,6 +42,10 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <Label Content="Art Name:" Canvas.Left="18" Canvas.Top="7"/>
+        <Label Content="Artist Name:" Canvas.Left="10" Canvas.Top="44"/>
+        <Label Content="Body:" Canvas.Left="10" Canvas.Top="86"/>
+        <Label Content="Year:" Canvas.Left="32" Canvas.Top="273"/>
 
     </Canvas>
 </Window>
